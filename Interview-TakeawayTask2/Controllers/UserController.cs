@@ -38,14 +38,14 @@ namespace InterviewTakeawayTask2.Controllers
 
         // POST: Creates a User
         [HttpPost]
-        public ActionResult<User> CreateUser([FromBody] User user)
+        public ActionResult<User> CreateUser([FromBody] UserRequest user)
         {
             if (user == null || string.IsNullOrEmpty(user.Name) || string.IsNullOrEmpty(user.Email))
             {
                 return BadRequest("Invalid user data.");
             }
 
-            var newUser = _userRepository.CreateUser(user.Name, user.Username, user.Password, user.Email, user.Age);
+            var newUser = _userRepository.CreateUser(user.Name, user.Password, user.Email, user.Age);
             return CreatedAtAction(nameof(GetUserById), new { id = newUser.Id }, newUser);
         }
     }

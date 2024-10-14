@@ -26,12 +26,12 @@ namespace InterviewTakeawayTask2.Repositories
         public User GetUserById(int id) => _users.FirstOrDefault(u => u.Id == id);
 
         // Create a new user
-        public User CreateUser(string name, string username, string password, string email, int age)
+        public User CreateUser(string name, string password, string email, int age)
         {
             var user = new User
             {
                 Id = _nextId++,
-                Username = username,
+                Username = email,
                 Password = password,
                 Name = name,
                 Email = email,
