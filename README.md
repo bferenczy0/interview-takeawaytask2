@@ -6,7 +6,7 @@ It is intended to be a snapshot of a small portion of the real platform, mangled
 The real codebase DOES NOT look like and is NOT laid out like this!
 
 # TASK
-1. Clone the code. Build and run/debug to get a feel for it. It is a VERY cut down section of a User Service section with a lot of things 'faked'. There should be a swagger page at https://localhost:5001 for all of your testing needs.
+1. Fork the repository so you have your own version and then clone the repo to your local machine. Build and run/debug to get a feel for it. It is a VERY cut down section of a User Service section with a lot of things 'faked'. There should be a swagger page at https://localhost:5001 for all of your testing needs.
 
 2. Read the Create User Update Endpoint issue (see issues) - or here - https://github.com/kaizenticketing/interview-takeawaytask2/issues/1.
 
