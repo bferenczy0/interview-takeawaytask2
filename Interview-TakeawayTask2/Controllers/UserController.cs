@@ -48,5 +48,25 @@ namespace InterviewTakeawayTask2.Controllers
             var newUser = _userRepository.CreateUser(user.Name, user.Password, user.Email, user.Age);
             return CreatedAtAction(nameof(GetUserById), new { id = newUser.Id }, newUser);
         }
+
+        // POST: Updates a User
+        [HttpPost]
+        public ActionResult<User> UpdateUser([FromBody] User user)
+        {
+            var existingUser = _userRepository.GetUserById(user.Id);
+
+            if (existingUser == null)
+            {
+                return BadRequest("User not found.");
+            }
+
+            if (user == null || string.IsNullOrEmpty(user.Password) || string.IsNullOrEmpty(user.Username))
+            {
+                return BadRequest("Invalid user data.");
+            }
+
+            var updatedUser = _userRepository.UpdateUser(user);
+            return CreatedAtAction(nameof(GetUserById), new { id = updatedUser.Id }, updatedUser);
+        }
     }
 }

@@ -42,5 +42,22 @@ namespace InterviewTakeawayTask2.Repositories
             return user;
         }
 
+        //Update a User
+        public User UpdateUser(User user)
+        {
+            var existingUser = _users.Find(x => x.Id == user.Id);
+
+            // This is probably not needed as there is a validation check in the user controller but it's still nice to have another validation step
+            if (existingUser != null)
+            {
+                existingUser.Username = user.Username;
+                existingUser.Name = user.Name;
+                existingUser.Password = user.Password;
+                existingUser.Email = user.Email;
+                existingUser.Age = user.Age;
+            }
+
+            return existingUser;
+        }
     }
 }
